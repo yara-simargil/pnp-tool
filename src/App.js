@@ -13,16 +13,21 @@ class App extends React.Component {
 
     props.getCharacters({
                           max: {id: 'max', name: 'Max'},
-                          ched: {id: 'ched', name: 'Ched'}
+                          ejrin: {id: 'ejrin', name: 'Ejrin'},
+                          vasilisa: {id: 'vasilisa', name: 'Vasilisa'},
+                          chad: {id: 'chad', name: 'Chad'},
+                          alior: {id: 'alior', name: 'Alior'}
                         });
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h2>Welcome to React</h2>
+      <div>
+        <div className="App">
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo"/>
+            <h2>Welcome to React</h2>
+          </div>
         </div>
 
         <CharacterList />

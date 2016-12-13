@@ -6,11 +6,20 @@ import './character-list.css';
 
 class CharacterList extends React.Component {
   render() {
+    const selectCharacter = (id) => {
+      if (id !== this.props.currentCharacter) {
+        this.props.selectCharacter(id);
+      }
+    };
+
     return (
       <ul className="character-list">
         {Object.keys(this.props.characters).map((id) => (
-          <li key={id} className={"item " + (this.props.currentCharacter === id ? 'active' : '')}>
-            <a onClick={this.props.selectCharacter(id)}>{this.props.characters[id].name}</a>
+          <li
+            key={id}
+            className={"item " + (this.props.currentCharacter === id ? 'active' : '')}
+            onClick={() => selectCharacter(id)}>
+            <a className="name">{this.props.characters[id].name}</a>
           </li>
         ))}
       </ul>
@@ -27,7 +36,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectCharacter: (id) => {return () => dispatch(selectCharacter(id))}
+    selectCharacter: (...args) => dispatch(selectCharacter(...args))
   };
 };
 

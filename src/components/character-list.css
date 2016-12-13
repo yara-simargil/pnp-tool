@@ -1,3 +1,32 @@
+.character-list {
+  --light-blue: #e4f2ff;
+  --dark-blue: #359;
+}
+
+.character-list {
+  width: 80px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+.character-list .item {
+  height: 80px;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  border-bottom: 1px solid var(--light-blue);
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
+}
+.character-list .item:hover {
+  text-decoration: underline;
+}
+.character-list .item .name {
+  padding: 0 0 2px 6px;
+}
 .character-list .item.active {
-  background-color: red;
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
 }
