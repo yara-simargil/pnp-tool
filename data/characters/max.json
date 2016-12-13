@@ -6,6 +6,7 @@
   "clan": "malkavian",
   "nature": "architect",
   "demeanor": "Ребонок, бунтарь",
+  "cash": "$1005 + $20000",
   "attributes": {
     "strength": { "value": 2 },
     "dexterity": { "value": 4, "aspect": "быстрая" },
@@ -60,7 +61,9 @@
     "bloodPool": {
       "limit": 11,
       "current": 9
-    }
+    },
+    "psychoses": "Бесстрашие",
+    "effects": "Забыла все приключение с эпидемией"
   },
   "experience": {
     "total": 20,

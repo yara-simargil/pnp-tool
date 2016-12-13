@@ -1,1 +1,7 @@
-.character-sheet {}
+.character-sheet {
+  display: flex;
+}
+
+.character-sheet .main .section .columns {
+  display: flex;
+}
