@@ -12,7 +12,7 @@ const characters = (state = {}, action) => {
         [characterId]: action.character
       };
     }
-  };
+  }
   return state;
 };
 

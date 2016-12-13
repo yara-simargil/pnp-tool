@@ -1,23 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getCharacters} from './actions/action-creators';
+import {getCharacters, getCharacter} from './actions/action-creators';
 import CharacterList from './components/character-list';
+import CharacterSheet from './components/character-sheet';
 
 import logo from './logo.svg';
 import './App.css';
+
+import list from '../data/characters/list.json';
+import max from '../data/characters/max.json';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    props.getCharacters({
-                          max: {id: 'max', name: 'Max'},
-                          ejrin: {id: 'ejrin', name: 'Ejrin'},
-                          vasilisa: {id: 'vasilisa', name: 'Vasilisa'},
-                          chad: {id: 'chad', name: 'Chad'},
-                          alior: {id: 'alior', name: 'Alior'}
-                        });
+    props.getCharacters(list);
+    props.getCharacter(max);
   }
 
   render() {
@@ -31,21 +30,17 @@ class App extends React.Component {
         </div>
 
         <CharacterList />
+        <CharacterSheet />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    characters: state.characters
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCharacters: (...args) => dispatch(getCharacters(...args))
+    getCharacters: (...args) => dispatch(getCharacters(...args)),
+    getCharacter: (...args) => dispatch(getCharacter(...args))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
