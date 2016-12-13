@@ -8,7 +8,13 @@ const appView = (state = {}, action) => {
         currentCharacter: action.characterId
       };
     }
-  };
+    case ActionTypes.GET_CHARACTERS: {
+      return {
+        ...state,
+        currentCharacter: Object.keys(action.characters)[0]
+      };
+    }
+  }
   return state;
 };
 
