@@ -6,13 +6,15 @@ import './character-sheet.css';
 class CharacterSheet extends React.Component {
   render() {
     let {character, metadata} = this.props;
+    if (!metadata) return null;
+
     const getSkillValue = (category, key) => {
       let skill = character[category][key];
       return skill ? skill.value : 0;
     };
     const getSkillAspect = (category, key) => {
       let skill = character[category][key];
-      return skill ? ' (' + skill.aspect + ')' : '';
+      return skill && skill.aspect ? ' (' + skill.aspect + ')' : '';
     };
 
     return (
@@ -99,7 +101,7 @@ const mapStateToProps = (state) => {
   let character = state.characters[state.appView.currentCharacter];
   return {
     character: character,
-    metadata: state.metadata[character.system].charsheets[character.type]
+    metadata: character.system && state.metadata[character.system].charsheets[character.type]
   };
 };
 

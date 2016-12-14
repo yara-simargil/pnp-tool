@@ -1,7 +1,20 @@
 .character-sheet {
   display: flex;
+  width: 100%;
 }
-
+.character-sheet .general-info {
+  flex-grow: 1;
+}
+.character-sheet .main {
+  flex-grow: 3;
+  text-align: center;
+}
+.character-sheet .current-state {
+  flex-grow: 1;
+}
 .character-sheet .main .section .columns {
   display: flex;
+}
+.character-sheet .main .section .columns div {
+  flex-grow: 1;
 }

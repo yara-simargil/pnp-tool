@@ -1,21 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getCharacters, getCharacter} from './actions/action-creators';
+import {getCharacters} from './actions/action-creators';
 import CharacterList from './components/character-list';
 import CharacterSheet from './components/character-sheet';
 
 import './App.css';
-
 import list from '../data/characters/list.json';
-import max from '../data/characters/max.json';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     props.getCharacters(list);
-    props.getCharacter(max);
   }
 
   render() {
@@ -30,8 +27,7 @@ class App extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCharacters: (...args) => dispatch(getCharacters(...args)),
-    getCharacter: (...args) => dispatch(getCharacter(...args))
+    getCharacters: (...args) => dispatch(getCharacters(...args))
   };
 };
 
