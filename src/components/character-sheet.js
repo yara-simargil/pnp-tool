@@ -6,7 +6,7 @@ import './character-sheet.css';
 class CharacterSheet extends React.Component {
   render() {
     let {character, metadata} = this.props;
-    if (!metadata) return null;
+    if (!character || !metadata) return null;
 
     const getSkillValue = (category, key) => {
       let skill = character[category][key];
@@ -98,10 +98,16 @@ class CharacterSheet extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  if (!state.appView.currentCharacter ||
+      !state.characters[state.appView.currentCharacter].system ||
+      !state.metadata[state.characters[state.appView.currentCharacter].system].system) {
+    return {};
+  }
+
   let character = state.characters[state.appView.currentCharacter];
   return {
     character: character,
-    metadata: character.system && state.metadata[character.system].charsheets[character.type]
+    metadata: state.metadata[character.system].charsheets[character.type]
   };
 };
 

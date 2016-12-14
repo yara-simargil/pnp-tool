@@ -1,12 +1,16 @@
-import vampire from '../../data/wod/charsheets/vampire.json';
+import * as ActionTypes from '../actions/action-types';
 
 const metadata = (state = {
-  wod: {
-    charsheets: {
-      vampire: vampire
+  wod: {}
+}, action) => {
+  switch (action.type) {
+    case ActionTypes.GET_METADATA: {
+      return {
+        ...state,
+        [action.metadata.system]: action.metadata
+      };
     }
   }
-}, action) => {
   return state;
 };
 

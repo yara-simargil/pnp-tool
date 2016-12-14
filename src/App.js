@@ -1,18 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getCharacters} from './actions/action-creators';
+import {getCharacters, getMetadata} from './actions/action-creators';
 import CharacterList from './components/character-list';
 import CharacterSheet from './components/character-sheet';
 
 import './App.css';
-import list from '../data/characters/list.json';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    props.getCharacters(list);
+    props.getMetadata();
+    props.getCharacters();
   }
 
   render() {
@@ -27,7 +27,8 @@ class App extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCharacters: (...args) => dispatch(getCharacters(...args))
+    getCharacters: (...args) => dispatch(getCharacters(...args)),
+    getMetadata: (...args) => dispatch(getMetadata(...args))
   };
 };
 
