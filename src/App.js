@@ -17,7 +17,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="app wod">
+        <link href='//fonts.googleapis.com/css?family=Nosifer' rel='stylesheet' />
+        <link href="http://allfont.net/allfont.css?fonts=antiqua" rel="stylesheet" type="text/css" />
+        <link href="http://allfont.net/allfont.css?fonts=b52" rel="stylesheet" type="text/css" />
+        <link href="http://allfont.net/allfont.css?fonts=grunge" rel="stylesheet" type="text/css" />
         <CharacterList />
         <CharacterSheet />
       </div>

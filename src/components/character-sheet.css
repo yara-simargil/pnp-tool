@@ -2,19 +2,28 @@
   display: flex;
   width: 100%;
 }
+
 .character-sheet .general-info {
   flex-grow: 1;
 }
+.character-sheet.vampire .general-info h1 {
+  font-family: 'Nosifer', arial, serif;
+}
+.character-sheet.vampire .general-info .malkavian {
+  font-family: 'Grunge', arial, serif;
+}
+
 .character-sheet .main {
   flex-grow: 3;
   text-align: center;
-}
-.character-sheet .current-state {
-  flex-grow: 1;
 }
 .character-sheet .main .section .columns {
   display: flex;
 }
 .character-sheet .main .section .columns div {
+  flex-grow: 1;
+}
+
+.character-sheet .current-state {
   flex-grow: 1;
 }

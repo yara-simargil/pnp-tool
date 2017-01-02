@@ -8,27 +8,31 @@ export const selectCharacter = (characterId) => {
 };
 
 export const getCharacters = () => (dispatch, getState) => {
-  makeApiCall(dispatch, '/characters', (characters) => ({
+  makeApiGet(dispatch, '/characters', (characters) => ({
     type: ActionTypes.GET_CHARACTERS,
     characters
   }));
 };
 
 export const getCharacter = (id) => (dispatch, getState) => {
-  makeApiCall(dispatch, '/characters/' + id, (character) => ({
+  makeApiGet(dispatch, '/characters/' + id, (character) => ({
     type: ActionTypes.GET_CHARACTER,
     character
   }));
 };
 
+export const updateCharacter = (character) => (dispatch, getState) => {
+  makeApiPost(dispatch, '/characters/' + character.id);
+};
+
 export const getMetadata = () => (dispatch, getState) => {
-  makeApiCall(dispatch, '/metadata/wod', (metadata) => ({
+  makeApiGet(dispatch, '/metadata/wod', (metadata) => ({
     type: ActionTypes.GET_METADATA,
     metadata
   }));
 };
 
-function makeApiCall(dispatch, url, action) {
+function makeApiGet(dispatch, url, action) {
   fetch('http://localhost:8080' + url).then(function(response) {
     if (!response.ok) {
       console.log('Error: ' + response.status + ' ' + response.statusText);
@@ -39,5 +43,12 @@ function makeApiCall(dispatch, url, action) {
     response.json().then(function(response) {
       dispatch(action(response));
     });
+  });
+}
+
+function makeApiPost(dispatch, url, data) {
+  fetch('http://localhost:8080' + url, {
+    method: 'post',
+    body: JSON.stringify(data)
   });
 }

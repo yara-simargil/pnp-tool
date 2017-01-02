@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import {updateCharacter} from '../actions/action-creators';
+import SkillList from './generic/skill-list';
 import './character-sheet.css';
 
 class CharacterSheet extends React.Component {
@@ -8,22 +10,29 @@ class CharacterSheet extends React.Component {
     let {character, metadata} = this.props;
     if (!character || !metadata) return null;
 
-    const getSkillValue = (category, key) => {
-      let skill = character[category][key];
-      return skill ? skill.value : 0;
+    const onChange = () => {
+      this.props.updateCharacter(character);
     };
-    const getSkillAspect = (category, key) => {
-      let skill = character[category][key];
-      return skill && skill.aspect ? ' (' + skill.aspect + ')' : '';
+
+    // const getSkillValue = (category, key) => {
+    //   let skill = character[category][key];
+    //   return skill ? skill.value : 0;
+    // };
+    // const getSkillAspect = (category, key) => {
+    //   let skill = character[category][key];
+    //   return skill && skill.aspect ? ' (' + skill.aspect + ')' : '';
+    // };
+    const getSkill = (category, key) => {
+      return character[category][key];
     };
 
     return (
-      <div className="character-sheet">
+      <div className={'character-sheet ' + character.type}>
         <div className="general-info">
           <h1>{character.name}</h1>
           <img className="avatar" alt="avatar" />
           <ul>
-            <li>{character.clan}</li>
+            <li className={character.clan}>{character.clan}</li>
             <li className="nature">{character.nature}</li>
             <li>{character.demeanor}</li>
             <li>Инициатива: {character.initiative}</li>
@@ -39,48 +48,18 @@ class CharacterSheet extends React.Component {
           <div className="section">
             <h2>Атрибуты</h2>
             <div className="columns">
-              <div>
-                <h3>Физические</h3>
-                {Object.keys(metadata.attributes.physical).map((key) => (
-                  <p key={key}>{metadata.attributes.physical[key]}{getSkillAspect('attributes', key)}: {getSkillValue('attributes', key)}</p>
-                ))}
-              </div>
-              <div>
-                <h3>Социальные</h3>
-                {Object.keys(metadata.attributes.social).map((key) => (
-                  <p key={key}>{metadata.attributes.social[key]}{getSkillAspect('attributes', key)}: {getSkillValue('attributes', key)}</p>
-                ))}
-              </div>
-              <div>
-                <h3>Ментальные</h3>
-                {Object.keys(metadata.attributes.mental).map((key) => (
-                  <p key={key}>{metadata.attributes.mental[key]}{getSkillAspect('attributes', key)}: {getSkillValue('attributes', key)}</p>
-                ))}
-              </div>
+              <SkillList name="Физические" metadata={metadata.attributes.physical} skills={character.attributes} onChange={onChange} />
+              <SkillList name="Социальные" metadata={metadata.attributes.social} skills={character.attributes} onChange={onChange} />
+              <SkillList name="Ментальные" metadata={metadata.attributes.mental} skills={character.attributes} onChange={onChange} />
             </div>
           </div>
 
           <div className="section">
             <h2>Способности</h2>
             <div className="columns">
-              <div>
-                <h3>Таланты</h3>
-                {Object.keys(metadata.abilities.talents).map((key) => (
-                  <p key={key}>{metadata.abilities.talents[key]}{getSkillAspect('abilities', key)}: {getSkillValue('abilities', key)}</p>
-                ))}
-              </div>
-              <div>
-                <h3>Навыки</h3>
-                {Object.keys(metadata.abilities.skills).map((key) => (
-                  <p key={key}>{metadata.abilities.skills[key]}{getSkillAspect('abilities', key)}: {getSkillValue('abilities', key)}</p>
-                ))}
-              </div>
-              <div>
-                <h3>Познания</h3>
-                {Object.keys(metadata.abilities.knowledges).map((key) => (
-                  <p key={key}>{metadata.abilities.knowledges[key]}{getSkillAspect('abilities', key)}: {getSkillValue('abilities', key)}</p>
-                ))}
-              </div>
+              <SkillList name="Таланты" metadata={metadata.abilities.talents} skills={character.abilities} onChange={onChange} />
+              <SkillList name="Навыки" metadata={metadata.abilities.skills} skills={character.abilities} onChange={onChange} />
+              <SkillList name="Познания" metadata={metadata.abilities.knowledges} skills={character.abilities} onChange={onChange} />
             </div>
           </div>
         </div>
@@ -111,4 +90,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(CharacterSheet);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateCharacter: (...args) => dispatch(updateCharacter(...args))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CharacterSheet);

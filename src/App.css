@@ -1,3 +1,7 @@
 .app {
   display: flex;
 }
+.wod {
+  /*font-family: 'B52', arial;*/
+  font-family: 'Antiqua', arial, serif;
+}
