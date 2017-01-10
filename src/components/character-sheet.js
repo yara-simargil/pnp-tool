@@ -14,18 +14,6 @@ class CharacterSheet extends React.Component {
       this.props.updateCharacter(character);
     };
 
-    // const getSkillValue = (category, key) => {
-    //   let skill = character[category][key];
-    //   return skill ? skill.value : 0;
-    // };
-    // const getSkillAspect = (category, key) => {
-    //   let skill = character[category][key];
-    //   return skill && skill.aspect ? ' (' + skill.aspect + ')' : '';
-    // };
-    const getSkill = (category, key) => {
-      return character[category][key];
-    };
-
     return (
       <div className={'character-sheet ' + character.type}>
         <div className="general-info">

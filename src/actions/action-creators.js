@@ -7,25 +7,25 @@ export const selectCharacter = (characterId) => {
   };
 };
 
-export const getCharacters = () => (dispatch, getState) => {
+export const getCharacters = () => (dispatch) => {
   makeApiGet(dispatch, '/characters', (characters) => ({
     type: ActionTypes.GET_CHARACTERS,
     characters
   }));
 };
 
-export const getCharacter = (id) => (dispatch, getState) => {
+export const getCharacter = (id) => (dispatch) => {
   makeApiGet(dispatch, '/characters/' + id, (character) => ({
     type: ActionTypes.GET_CHARACTER,
     character
   }));
 };
 
-export const updateCharacter = (character) => (dispatch, getState) => {
-  makeApiPost(dispatch, '/characters/' + character.id);
+export const updateCharacter = (character) => () => {
+  makeApiPost('/characters/' + character.id, character);
 };
 
-export const getMetadata = () => (dispatch, getState) => {
+export const getMetadata = () => (dispatch) => {
   makeApiGet(dispatch, '/metadata/wod', (metadata) => ({
     type: ActionTypes.GET_METADATA,
     metadata
@@ -46,9 +46,12 @@ function makeApiGet(dispatch, url, action) {
   });
 }
 
-function makeApiPost(dispatch, url, data) {
+function makeApiPost(url, data) {
   fetch('http://localhost:8080' + url, {
     method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(data)
   });
 }

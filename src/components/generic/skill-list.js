@@ -8,11 +8,17 @@ class SkillList extends React.Component {
     let {name, metadata, skills, onChange} = this.props;
     if (!metadata) return null;
 
+    function onSkillChange(skillId, newValue) {
+      skills[skillId] = skills[skillId] || {};
+      skills[skillId].value = newValue;
+      onChange();
+    }
+
     return (
       <div>
         <h3>{name}</h3>
         {Object.keys(metadata).map((key) => (
-          <SkillBar key={key} name={metadata[key]} skill={skills[key]} onChange={onChange} />
+          <SkillBar key={key} id={key} name={metadata[key]} skill={skills[key]} onChange={onSkillChange} />
         ))}
       </div>
     );

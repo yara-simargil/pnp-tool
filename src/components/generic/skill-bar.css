@@ -1,0 +1,22 @@
+.skill-bar span {
+  display: inline-block;
+}
+.skill-bar .name {
+  font-weight: bold;
+  width: 140px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.skill-bar .item {
+  width: 10px;
+  height: 10px;
+  margin-left: 4px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.skill-bar .item.filled {
+  background-color: black;
+}
