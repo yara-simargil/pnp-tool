@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {updateCharacter} from '../actions/action-creators';
 import SkillList from './generic/skill-list';
+import BloodPool from './blood-pool';
 import './character-sheet.css';
 
 class CharacterSheet extends React.Component {
@@ -53,7 +54,7 @@ class CharacterSheet extends React.Component {
         </div>
 
         <div className="current-state">
-          <div>blood pool: {character.state.bloodPool.current} / {character.state.bloodPool.limit}</div>
+          <BloodPool bloodPool={character.state.bloodPool} onChange={onChange} />
           <div>willpower: {character.state.willpower.current} / {character.state.willpower.limit}</div>
           <div>health: injury {character.state.injury}</div>
           <div>psychoses: {character.state.psychoses}</div>
