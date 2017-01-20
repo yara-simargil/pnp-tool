@@ -1,7 +1,7 @@
-.app {
+.game-page {
   display: flex;
 }
-.wod {
+.game-page.wod {
   /*font-family: 'B52', arial;*/
   font-family: 'Antiqua', arial, serif;
 }

@@ -1,18 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {updateCharacter} from '../actions/action-creators';
-import SkillList from './generic/skill-list';
+import {updateCharacter} from '../../actions/action-creators';
+
+import SkillList from '../generic/skill-list';
 import BloodPool from './blood-pool';
+import WillpowerPool from './willpower-pool';
+
 import './character-sheet.css';
 
 class CharacterSheet extends React.Component {
   render() {
-    let {character, metadata} = this.props;
+    let {gameId, character, metadata} = this.props;
     if (!character || !metadata) return null;
 
     const onChange = () => {
-      this.props.updateCharacter(character);
+      this.props.updateCharacter(gameId, character);
     };
 
     return (
@@ -55,7 +58,7 @@ class CharacterSheet extends React.Component {
 
         <div className="current-state">
           <BloodPool bloodPool={character.state.bloodPool} onChange={onChange} />
-          <div>willpower: {character.state.willpower.current} / {character.state.willpower.limit}</div>
+          <WillpowerPool willpower={character.state.willpower} onChange={onChange} />
           <div>health: injury {character.state.injury}</div>
           <div>psychoses: {character.state.psychoses}</div>
           <div>effects: {character.state.effects}</div>
@@ -74,6 +77,7 @@ const mapStateToProps = (state) => {
 
   let character = state.characters[state.appView.currentCharacter];
   return {
+    gameId: state.appView.currentGame,
     character: character,
     metadata: state.metadata[character.system].charsheets[character.type]
   };

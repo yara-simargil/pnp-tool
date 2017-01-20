@@ -1,20 +1,19 @@
-.blood-pool .item {
+.willpower-pool .item {
   margin-bottom: 4px;
 }
-.blood-pool .drop {
+.willpower-pool .drop {
   box-sizing: content-box;
   width: 20px;
   height: 20px;
-  border: none;
   border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
   font: normal 100%/normal Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 1);
   text-overflow: clip;
-  border: 3px solid #d8324e;
+  border: 3px solid #f2d84e;
   -webkit-transform: rotateZ(-45deg);
   transform: rotateZ(-45deg);
 }
 
-.blood-pool .drop.filled {
-  background: #d8324e;
+.willpower-pool .drop.filled {
+  background: #f2d84e;
 }

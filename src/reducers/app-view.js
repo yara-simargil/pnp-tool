@@ -2,6 +2,12 @@ import * as ActionTypes from '../actions/action-types';
 
 const appView = (state = {}, action) => {
   switch (action.type) {
+    case ActionTypes.SET_CURRENT_GAME: {
+      return {
+        ...state,
+        currentGame: action.gameId
+      };
+    }
     case ActionTypes.SELECT_CHARACTER: {
       return {
         ...state,

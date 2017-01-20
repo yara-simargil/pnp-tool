@@ -16,11 +16,10 @@ class BloodPool extends React.Component {
 
     return (
       <div className="blood-pool">
-        {[...Array(bloodPool.limit)].map((x, i) =>
-          <div className="item">
+        {[...new Array(bloodPool.limit)].map((x, i) =>
+          <div key={i + 1} className="item">
             {i + 1}
-            <div key={i + 1}
-                className={"drop " + (bloodPool.current > i ? 'filled' : '')}
+            <div className={"drop " + (bloodPool.current > i ? 'filled' : '')}
                onClick={()=>{onClick(i + 1)}} />
           </div>
         )}

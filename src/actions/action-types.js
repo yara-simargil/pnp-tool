@@ -1,3 +1,5 @@
+export const GET_GAMES = 'GET_GAMES';
+export const SET_CURRENT_GAME = 'SET_CURRENT_GAME';
 export const GET_CHARACTERS = 'GET_CHARACTERS';
 export const GET_CHARACTER = 'GET_CHARACTER';
 export const SELECT_CHARACTER = 'SELECT_CHARACTER';
