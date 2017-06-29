@@ -8,15 +8,15 @@ import WodCharacterSheet from '../components/wod/character-sheet';
 import './game.css';
 
 class GamePage extends React.Component {
-  characterSheets = {
-    'wod': WodCharacterSheet
-  };
-
   constructor(props) {
     super(props);
 
     props.getGames();
     props.setCurrentGame(props.gameId);
+
+    this.characterSheets = {
+      'wod': WodCharacterSheet
+    };
   }
 
   render() {

@@ -12,7 +12,13 @@ import './index.css';
 import HomePage from './pages/home';
 import GamePage from './pages/game';
 
-let store = createStore(reducers, compose(applyMiddleware(...middlewares, thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+let store = createStore(
+  reducers,
+  compose(
+    applyMiddleware(...middlewares, thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
 
 ReactDOM.render(
   <Provider store={store}>
