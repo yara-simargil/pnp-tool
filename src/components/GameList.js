@@ -9,7 +9,7 @@ export class GameList extends React.PureComponent {
     return (
       <ul className="game-list">
         {Object.keys(games).map(id => (
-          <li key={id} className="item">
+          <li key={id} className="game-list__item">
             <Link to={"game/" + id}>{games[id].name}</Link>
           </li>
         ))}

@@ -19,7 +19,7 @@ describe('<GameList />', () => {
     };
     const wrapper = shallow(<GameList games={games} />);
 
-    expect(wrapper.find('.game-list .item')).toHaveLength(3);
+    expect(wrapper.find('.game-list__item')).toHaveLength(3);
     expect(wrapper.find(Link)).toHaveLength(3);
     expect(wrapper.find(Link).first().prop('to')).toBe('game/test-game1');
     expect(wrapper.find(Link).first().prop('children')).toBe('Test Game 1');

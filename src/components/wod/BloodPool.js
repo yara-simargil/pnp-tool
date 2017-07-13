@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import classnames from 'classnames';
 
 import './BloodPool.css';
 
@@ -15,10 +16,15 @@ export default class BloodPool extends React.PureComponent {
     return (
       <div className="blood-pool">
         {[...new Array(bloodPool.limit)].map((x, i) =>
-          <div key={i + 1} className="item">
+          <div key={i + 1} className="blood-pool__item">
             {i + 1}
-            <div className={"drop " + (bloodPool.current > i ? 'filled' : '')}
-               onClick={()=>{onClick(i + 1)}} />
+            <div
+              className={classnames(
+                'blood-pool__drop',
+                {'blood-pool__drop--filled': bloodPool.current > i}
+              )}
+              onClick={()=>{onClick(i + 1)}}
+            />
           </div>
         )}
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import classnames from 'classnames';
 
 import {selectCharacter} from '../actions/action-creators';
 import './CharacterList.css';
@@ -22,9 +23,13 @@ export class CharacterList extends React.PureComponent {
         {Object.keys(characters).map(id => (
           <li
             key={id}
-            className={"item " + (currentCharacter === id ? 'active' : '')}
-            onClick={() => selectCharacter(id)}>
-            <a className="name">{characters[id].name}</a>
+            className={classnames(
+              'character-list__item',
+              {'character-list__item--active' : currentCharacter === id}
+            )}
+            onClick={() => selectCharacter(id)}
+          >
+            <a className="character-list__item-name">{characters[id].name}</a>
           </li>
         ))}
       </ul>

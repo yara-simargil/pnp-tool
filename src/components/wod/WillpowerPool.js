@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import classnames from 'classnames';
 
 import './WillpowerPool.css';
 
@@ -15,10 +16,15 @@ export default class WillpowerPool extends React.PureComponent {
     return (
       <div className="willpower-pool">
         {[...new Array(willpower.limit)].map((x, i) =>
-          <div key={i + 1} className="item">
+          <div key={i + 1} className="willpower-pool__item">
             {i + 1}
-            <div className={"drop " + (willpower.current > i ? 'filled' : '')}
-               onClick={() => {onClick(i + 1)}} />
+            <div
+              className={classnames(
+                'willpower-pool__drop',
+                {'willpower-pool__drop--filled': willpower.current > i}
+              )}
+              onClick={() => {onClick(i + 1)}}
+            />
           </div>
         )}
       </div>

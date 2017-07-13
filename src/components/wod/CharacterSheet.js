@@ -19,36 +19,36 @@ export class CharacterSheet extends React.PureComponent {
     };
 
     return (
-      <div className={'character-sheet ' + character.type}>
-        <div className="general-info">
+      <div className={`character-sheet ${character.type}`}>
+        <div className="character-sheet__general-info">
           <h1>{character.name}</h1>
-          <img className="avatar" alt="avatar" />
+          <img className="character-sheet__avatar" alt="avatar" />
           <ul>
             <li className={character.clan}>{character.clan}</li>
-            <li className="nature">{character.nature}</li>
+            <li className="character-sheet__nature">{character.nature}</li>
             <li>{character.demeanor}</li>
             <li>Инициатива: {character.initiative}</li>
           </ul>
-          <div className="cash">{character.cash}</div>
-          <div className="experience">
+          <div className="character-sheet__cash">{character.cash}</div>
+          <div className="character-sheet__experience">
             <p>{character.experience.total} <span>(+{character.experience.total - character.experience.spent})</span></p>
             <a>...</a>
           </div>
         </div>
 
-        <div className="main">
-          <div className="section">
+        <div className="character-sheet__main">
+          <div className="character-sheet__section">
             <h2>Атрибуты</h2>
-            <div className="columns">
+            <div className="character-sheet__section-columns">
               <SkillList name="Физические" metadata={metadata.attributes.physical} skills={character.attributes} onChange={onChange} />
               <SkillList name="Социальные" metadata={metadata.attributes.social} skills={character.attributes} onChange={onChange} />
               <SkillList name="Ментальные" metadata={metadata.attributes.mental} skills={character.attributes} onChange={onChange} />
             </div>
           </div>
 
-          <div className="section">
+          <div className="character-sheet__section">
             <h2>Способности</h2>
-            <div className="columns">
+            <div className="character-sheet__section-columns">
               <SkillList name="Таланты" metadata={metadata.abilities.talents} skills={character.abilities} onChange={onChange} />
               <SkillList name="Навыки" metadata={metadata.abilities.skills} skills={character.abilities} onChange={onChange} />
               <SkillList name="Познания" metadata={metadata.abilities.knowledges} skills={character.abilities} onChange={onChange} />
@@ -56,7 +56,7 @@ export class CharacterSheet extends React.PureComponent {
           </div>
         </div>
 
-        <div className="current-state">
+        <div className="character-sheet__current-state">
           <BloodPool bloodPool={character.state.bloodPool} onChange={onChange} />
           <WillpowerPool willpower={character.state.willpower} onChange={onChange} />
           <div>health: injury {character.state.injury}</div>

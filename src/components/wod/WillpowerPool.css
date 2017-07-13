@@ -1,7 +1,7 @@
-.willpower-pool .item {
+.willpower-pool__item {
   margin-bottom: 4px;
 }
-.willpower-pool .drop {
+.willpower-pool__drop {
   box-sizing: content-box;
   width: 20px;
   height: 20px;
@@ -14,6 +14,6 @@
   transform: rotateZ(-45deg);
 }
 
-.willpower-pool .drop.filled {
+.willpower-pool__drop--filled {
   background: #f2d84e;
 }

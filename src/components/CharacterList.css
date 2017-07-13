@@ -10,7 +10,7 @@
   padding: 0;
   font-size: 20px;
 }
-.character-list .item {
+.character-list__item {
   height: 80px;
   flex-direction: column;
   display: flex;
@@ -20,13 +20,13 @@
   background-color: var(--dark-blue);
   color: var(--light-blue);
 }
-.character-list .item:hover {
+.character-list__item:hover {
   text-decoration: underline;
 }
-.character-list .item .name {
+.character-list__item-name {
   padding: 0 0 2px 6px;
 }
-.character-list .item.active {
+.character-list__item--active {
   background-color: var(--light-blue);
   color: var(--dark-blue);
 }

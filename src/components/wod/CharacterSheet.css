@@ -3,27 +3,27 @@
   width: 100%;
 }
 
-.character-sheet .general-info {
+.character-sheet__general-info {
   flex-grow: 1;
 }
-.character-sheet.vampire .general-info h1 {
+.vampire .character-sheet__general-info h1 {
   font-family: 'Nosifer', arial, serif;
 }
-.character-sheet.vampire .general-info .malkavian {
+.vampire .character-sheet__general-info .malkavian {
   font-family: 'Grunge', arial, serif;
 }
 
-.character-sheet .main {
+.character-sheet__main {
   flex-grow: 3;
   text-align: center;
 }
-.character-sheet .main .section .columns {
+.character-sheet__section-columns {
   display: flex;
 }
-.character-sheet .main .section .columns div {
+.character-sheet__section-columns div {
   flex-grow: 1;
 }
 
-.character-sheet .current-state {
+.character-sheet__current-state {
   flex-grow: 1;
 }
