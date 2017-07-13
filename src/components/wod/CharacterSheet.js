@@ -9,9 +9,9 @@ import WillpowerPool from './WillpowerPool';
 
 import './CharacterSheet.css';
 
-class CharacterSheet extends React.Component {
+export class CharacterSheet extends React.PureComponent {
   render() {
-    let {gameId, character, metadata} = this.props;
+    const {gameId, character, metadata} = this.props;
     if (!character || !metadata) return null;
 
     const onChange = () => {
@@ -67,6 +67,13 @@ class CharacterSheet extends React.Component {
     );
   }
 }
+
+CharacterSheet.propTypes = {
+  gameId: React.PropTypes.string,
+  character: React.PropTypes.object,
+  metadata: React.PropTypes.object,
+  updateCharacter: React.PropTypes.func,
+};
 
 const mapStateToProps = (state) => {
   if (!state.appView.currentCharacter ||

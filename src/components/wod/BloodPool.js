@@ -3,11 +3,9 @@ import {connect} from 'react-redux';
 
 import './BloodPool.css';
 
-class BloodPool extends React.Component {
+export default class BloodPool extends React.PureComponent {
   render() {
-    let {bloodPool, onChange} = this.props;
-
-    bloodPool = bloodPool || {current: 0, limit: 11};
+    const {bloodPool, onChange} = this.props;
 
     function onClick(newValue) {
       bloodPool.current = bloodPool.current < newValue ? newValue : newValue - 1;
@@ -28,4 +26,17 @@ class BloodPool extends React.Component {
   }
 }
 
-export default connect()(BloodPool);
+BloodPool.propTypes = {
+  bloodPool: React.PropTypes.shape({
+    current: React.PropTypes.number,
+    limit: React.PropTypes.number,
+  }),
+  onChange: React.PropTypes.func,
+};
+
+BloodPool.defaultProps = {
+  bloodPool: {
+    current: 0,
+    limit: 11
+  },
+};

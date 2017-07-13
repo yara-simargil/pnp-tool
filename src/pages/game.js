@@ -7,7 +7,7 @@ import WodCharacterSheet from '../components/wod/character-sheet';
 
 import './game.css';
 
-class GamePage extends React.Component {
+export class GamePage extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -26,7 +26,7 @@ class GamePage extends React.Component {
     let CharacterSheet = this.characterSheets[game.system];
 
     return (
-      <div className={'game-page ' + game.system}>
+      <div className={`game-page ${game.system}`}>
         <link href="//fonts.googleapis.com/css?family=Nosifer" rel="stylesheet" />
         <link href="http://allfont.net/allfont.css?fonts=antiqua" rel="stylesheet" type="text/css" />
         <link href="http://allfont.net/allfont.css?fonts=b52" rel="stylesheet" type="text/css" />
@@ -37,6 +37,17 @@ class GamePage extends React.Component {
     );
   }
 }
+
+GamePage.propTypes = {
+  gameId: React.PropTypes.string,
+  game: React.PropTypes.shape({
+    id: React.PropTypes.string,
+    name: React.PropTypes.string,
+    system: React.PropTypes.string,
+  }),
+  getGames: React.PropTypes.func,
+  setCurrentGame: React.PropTypes.func,
+};
 
 const mapStateToProps = (state, ownProps) => {
   return {

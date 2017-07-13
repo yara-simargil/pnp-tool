@@ -6,7 +6,7 @@ import GameList from '../components/game-list';
 
 import './home.css';
 
-class HomePage extends React.Component {
+export class HomePage extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -24,6 +24,10 @@ class HomePage extends React.Component {
     );
   }
 }
+
+HomePage.propTypes = {
+  getGames: React.PropTypes.func,
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {

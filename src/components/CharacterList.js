@@ -4,28 +4,43 @@ import {connect} from 'react-redux';
 import {selectCharacter} from '../actions/action-creators';
 import './CharacterList.css';
 
-class CharacterList extends React.Component {
+export class CharacterList extends React.PureComponent {
   render() {
-    const selectCharacter = (id) => {
-      if (id !== this.props.currentCharacter) {
+    const {
+      characters,
+      currentCharacter,
+    } = this.props;
+
+    const selectCharacter = id => {
+      if (id !== currentCharacter) {
         this.props.selectCharacter(id);
       }
     };
 
     return (
       <ul className="character-list">
-        {Object.keys(this.props.characters).map((id) => (
+        {Object.keys(characters).map(id => (
           <li
             key={id}
-            className={"item " + (this.props.currentCharacter === id ? 'active' : '')}
+            className={"item " + (currentCharacter === id ? 'active' : '')}
             onClick={() => selectCharacter(id)}>
-            <a className="name">{this.props.characters[id].name}</a>
+            <a className="name">{characters[id].name}</a>
           </li>
         ))}
       </ul>
     );
   }
 }
+
+CharacterList.propTypes = {
+  characters: React.PropTypes.object,
+  currentCharacter: React.PropTypes.string,
+  selectCharacter: React.PropTypes.func,
+};
+
+CharacterList.defaultProps = {
+  characters: {},
+};
 
 const mapStateToProps = (state) => {
   return {

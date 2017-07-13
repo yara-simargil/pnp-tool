@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-export class GameList extends React.Component {
+export class GameList extends React.PureComponent {
   render() {
     let {games} = this.props;
 
