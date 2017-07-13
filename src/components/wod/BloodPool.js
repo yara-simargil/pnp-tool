@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import './blood-pool.css';
+import './BloodPool.css';
 
 class BloodPool extends React.Component {
   render() {

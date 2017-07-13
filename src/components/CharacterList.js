@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {selectCharacter} from '../actions/action-creators';
-import './character-list.css';
+import './CharacterList.css';
 
 class CharacterList extends React.Component {
   render() {

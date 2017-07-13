@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import SkillBar from './skill-bar';
+import SkillBar from './SkillBar';
 
 class SkillList extends React.Component {
   render() {

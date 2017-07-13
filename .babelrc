@@ -1,3 +1,13 @@
 {
-  "presets": ["es2015", "stage-3", "react"]
+  "presets": [
+    ["es2015", {"modules": false}],
+    "stage-3",
+    "react",
+    "jest"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
 }

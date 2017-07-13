@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import './willpower-pool.css';
+import './WillpowerPool.css';
 
 class WillpowerPool extends React.Component {
   render() {

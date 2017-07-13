@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 
 import {updateCharacter} from '../../actions/action-creators';
 
-import SkillList from '../generic/skill-list';
-import BloodPool from './blood-pool';
-import WillpowerPool from './willpower-pool';
+import SkillList from '../generic/SkillList';
+import BloodPool from './BloodPool';
+import WillpowerPool from './WillpowerPool';
 
-import './character-sheet.css';
+import './CharacterSheet.css';
 
 class CharacterSheet extends React.Component {
   render() {
