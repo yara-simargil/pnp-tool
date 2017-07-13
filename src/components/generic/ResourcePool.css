@@ -1,19 +1,31 @@
-.willpower-pool__item {
+.resource-pool {
+  --drop-color: gray;
+}
+
+.resource-pool.blood {
+  --drop-color: #d8324e;
+}
+
+.resource-pool.willpower {
+  --drop-color: #f2d84e;
+}
+
+.resource-pool__item {
   margin-bottom: 4px;
 }
-.willpower-pool__drop {
+.resource-pool__drop {
   box-sizing: content-box;
   width: 20px;
   height: 20px;
   border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
   font: normal 100%/normal Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 1);
+  border: 3px solid var(--drop-color);
   text-overflow: clip;
-  border: 3px solid #f2d84e;
   -webkit-transform: rotateZ(-45deg);
   transform: rotateZ(-45deg);
 }
 
-.willpower-pool__drop--filled {
-  background: #f2d84e;
+.resource-pool__drop--filled {
+  background: var(--drop-color);
 }

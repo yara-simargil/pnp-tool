@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {getGames, setCurrentGame} from '../actions/action-creators';
-import CharacterList from '../components/character-list';
-import WodCharacterSheet from '../components/wod/character-sheet';
+import CharacterList from '../components/CharacterList';
+import WodCharacterSheet from '../components/wod/CharacterSheet';
 
 import './game.css';
 

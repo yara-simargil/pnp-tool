@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import {updateCharacter} from '../../actions/action-creators';
 
 import SkillList from '../generic/SkillList';
-import BloodPool from './BloodPool';
-import WillpowerPool from './WillpowerPool';
+import ResourcePool from '../generic/ResourcePool';
 
 import './CharacterSheet.css';
 
@@ -57,8 +56,8 @@ export class CharacterSheet extends React.PureComponent {
         </div>
 
         <div className="character-sheet__current-state">
-          <BloodPool bloodPool={character.state.bloodPool} onChange={onChange} />
-          <WillpowerPool willpower={character.state.willpower} onChange={onChange} />
+          <ResourcePool resource="blood" resourcePool={character.state.bloodPool} onChange={onChange} />
+          <ResourcePool resource="willpower" resourcePool={character.state.willpower} onChange={onChange} />
           <div>health: injury {character.state.injury}</div>
           <div>psychoses: {character.state.psychoses}</div>
           <div>effects: {character.state.effects}</div>

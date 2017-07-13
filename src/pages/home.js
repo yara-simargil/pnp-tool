@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {getGames} from '../actions/action-creators';
-import GameList from '../components/game-list';
+import GameList from '../components/GameList';
 
 import './home.css';
 
